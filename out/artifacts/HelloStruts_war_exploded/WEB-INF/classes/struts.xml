@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="default"   extends="struts-default">
+        <!--completely-->
+    <action name="hello" class="controller.HelloWorld"  method="execute">
+        <result name="success">/WEB-INF/hello.jsp</result>
+    </action>
+        <!--lack of method attribute-->
+        <action name="hi" class="controller.HelloWorld">
+            <result name="success">/WEB-INF/hello1.jsp</result>
+        </action>
+
+        <!--action name with slashes-->
+        <action name="slashes/example" class="controller.HelloWorld">
+            <result name="success">/WEB-INF/new.jsp</result>
+        </action>
+
+        <!--action name with wildcard -  can't include slash character (/) --><!--something was wrong?-->
+        <action name="hello*" class="controller.HelloWorld">
+            <result>/WEB-INF/hello{1}.jsp</result>
+        </action>
+
+        <!--action name with wildcard 2 (double asterisk)
+        It's similar with wildcard, but (**) can include slash character (/)
+        -->
+
+        <!--lack of class attribute-->
+        <action name="newName">
+            <result name="success">/WEB-INF/new.jsp</result>
+        </action>
+
+        <!--default action in package scope-->
+
+
+    </package>
+
+
+</struts>
