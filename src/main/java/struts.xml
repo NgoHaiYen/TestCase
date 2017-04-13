@@ -8,13 +8,19 @@
 
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
 
-    <package name="default" extends="struts-default" namespace = "/">
+    <package name="default" extends="struts-default" >
         <!--completely-->
         <action name="hello" class="controller.HelloWorld" method="execute">
             <result name="success">/WEB-INF/hello.jsp</result>
         </action>
+
         <!--lack of method attribute-->
         <action name="hi" class="controller.HelloWorld">
+            <result name="success">/WEB-INF/hello1.jsp</result>
+        </action>
+
+        <!--lack of class attribute-->
+        <action name="newName" class="controller.HelloWorld">
             <result name="success">/WEB-INF/hello1.jsp</result>
         </action>
 
@@ -32,10 +38,7 @@
         It's similar with wildcard, but (**) can include slash character (/)
         -->
 
-        <!--lack of class attribute-->
-        <action name="newName">
-            <result name="success">/WEB-INF/new.jsp</result>
-        </action>
+
 
 
     </package>
